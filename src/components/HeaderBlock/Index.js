@@ -1,5 +1,21 @@
 import s from './style.module.css';
 
+const Header = ({title, descr}) => {
+  return(
+  <header className={s.root}>
+    <div className={s.forest}></div>
+    <div className={s.container}>
+      {title && (<h1>
+        {title}
+        </h1>)}
+      {descr && (<p>
+        {descr}
+        </p>)}        
+    </div>
+  </header>
+  )
+}
+/*
 const HeaderBlock =({title, hideBackground=false, descr}) => {
   const styleRoot= hideBackground ? {backgroundImage : 'none'} : {};
   return (
@@ -16,6 +32,6 @@ const HeaderBlock =({title, hideBackground=false, descr}) => {
     </div>
   </div>  
   )
-}
+}*/
 
-export default HeaderBlock;
+export default Header;
