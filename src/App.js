@@ -1,31 +1,46 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from "./components/HeaderBlock/Index";
-import Layout from "./components/HeaderBlock/Layout";
-import Footer from "./components/HeaderBlock/Footer";
+import Header from "./components/Header/Header";
+import Layout from "./components/Layout/Layout";
+import Footer from "./components/Footer/Footer";
+import PokemonCard from "./components/PokemonCard/Index"
 import LayoutImage1 from "./assets/bg1.jpg";
-import LayoutImage2 from "./assets/bg2.jpg";
+import LayoutImage2 from "./assets/bg3.jpg";
+import POKEMONS from "./components/data/pokemons.json"
 
 const App = () => {
  return (
   <>
     <Header 
-    title='This is title'
-    descr='This is Description!'
+    title="Pokemon Game"
+    descr="This is simple tripl triad card game"
     />
     <Layout 
-    id='1'    
-    urlBg={LayoutImage2}
-    />    
+      id='rules'
+      title="Rules"  
+      urlBg={LayoutImage2}
+    >
+      <p>In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.</p>
+      <p>Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.</p>      
+    </Layout>    
     <Layout 
-    id='2'    
-    colorBg="#F6BB42"
-    />
+      id='cards'
+      title="Cards"       
+      colorBg="#202736"
+    > 
+      <div className="flex">
+        {
+          POKEMONS.map(item => <PokemonCard {...item}/>)
+        }
+      </div>     
+    </Layout> 
     <Layout 
-    id='3'
-    title='This is Pika'
-    urlBg={LayoutImage1}
-    />    
+      id='about'
+      title="Full Rules"
+      urlBg={LayoutImage1}
+    >
+      <p>To win, a majority of the total ten cards played (including the one card that is not placed on the board) must be of the player's card color. To do this, the player must capture cards by placing a card adjacent to an opponent's card whereupon the 'ranks' of the sides where the two cards touch will be compared. If the rank of the opponent's card is higher than the player's card, the player's card will be captured and turned into the opponent's color. If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead.</p>     
+    </Layout>    
     <Footer />
   </>
  );
