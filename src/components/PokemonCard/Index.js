@@ -2,7 +2,7 @@ import {useState} from 'react';
 import s from './style.module.css';
 import cardBackSlide from './assets/card-back-side.jpg'
 
-const PokemonCard = ({name, img, id, type, values}) =>{
+const PokemonCard = ({id, name, img, type, values}) =>{
   const [isActive, setActive] =useState(false);
   const handeClick = () =>{
     setActive(!isActive);
